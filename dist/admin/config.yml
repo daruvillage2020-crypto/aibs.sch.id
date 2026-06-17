@@ -1,0 +1,42 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/uploads
+public_folder: /uploads
+
+site_url: https://aibs.sch.id
+display_url: https://aibs.sch.id
+logo_url: /favicon.svg
+
+collections:
+  - name: blog
+    label: Blog
+    label_singular: Artikel
+    folder: src/content/blog
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Judul, widget: string }
+      - { name: description, label: Deskripsi (SEO), widget: text, hint: "Ringkasan untuk meta description & kartu artikel" }
+      - { name: date, label: Tanggal, widget: datetime }
+      - { name: author, label: Penulis, widget: string, default: "Tim AIBS" }
+      - { name: cover, label: Gambar Sampul, widget: image, required: false }
+      - { name: body, label: Konten, widget: markdown }
+
+  - name: settings
+    label: Pengaturan
+    files:
+      - name: site
+        label: "SEO & Info Situs"
+        file: src/data/site.json
+        fields:
+          - { name: title, label: Nama Situs, widget: string }
+          - { name: tagline, label: Tagline, widget: string }
+          - { name: description, label: Meta Description (SEO), widget: text }
+          - { name: keywords, label: Meta Keywords (SEO), widget: string, hint: "Pisahkan dengan koma" }
+          - { name: ogImage, label: Gambar OG Default (SEO), widget: image, required: false }
+          - { name: email, label: Email, widget: string }
+          - { name: phone, label: Telepon, widget: string }
+          - { name: whatsapp, label: Nomor WhatsApp (format 62...), widget: string }
+          - { name: address, label: Alamat, widget: string }

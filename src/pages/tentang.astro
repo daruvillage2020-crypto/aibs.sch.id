@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const values = [
+  { title: 'Inovasi', desc: 'Selalu di garis depan teknologi AI.' },
+  { title: 'Praktis', desc: 'Belajar dengan proyek nyata sejak hari pertama.' },
+  { title: 'Kolaboratif', desc: 'Komunitas pelajar dan mentor yang saling mendukung.' },
+];
+---
+
+<Layout
+  title="Tentang Kami"
+  description="Mengenal AIBS, sekolah AI satu-satunya di Indonesia dengan visi mencetak talenta kecerdasan buatan."
+>
+  <section class="bg-brand-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16 text-center">
+      <h1 class="text-4xl font-extrabold text-gray-900">Tentang AIBS</h1>
+      <p class="mt-4 text-lg text-gray-600">
+        Sekolah AI satu-satunya di Indonesia yang fokus mencetak generasi siap menghadapi era kecerdasan buatan.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-14 space-y-6 text-gray-700 leading-relaxed">
+    <p>
+      AIBS (AI Business School) didirikan dengan satu misi: menjadikan Indonesia siap menghadapi
+      revolusi kecerdasan buatan. Kami percaya AI bukan sekadar tren, melainkan keterampilan inti
+      masa depan.
+    </p>
+    <p>
+      Dengan kurikulum yang dirancang bersama praktisi industri, siswa belajar langsung membangun
+      solusi nyata di bidang AI Coding, AI Design, dan AI Cybersecurity.
+    </p>
+
+    <div class="grid gap-6 sm:grid-cols-3 pt-6">
+      <div class="rounded-2xl border border-gray-100 p-6">
+        <h3 class="font-semibold text-brand-700">Visi</h3>
+        <p class="text-sm text-gray-600 mt-2">Menjadi pusat pendidikan AI terdepan di Indonesia.</p>
+      </div>
+      <div class="rounded-2xl border border-gray-100 p-6">
+        <h3 class="font-semibold text-brand-700">Misi</h3>
+        <p class="text-sm text-gray-600 mt-2">Mencetak talenta AI yang siap kerja dan berdaya saing global.</p>
+      </div>
+      <div class="rounded-2xl border border-gray-100 p-6">
+        <h3 class="font-semibold text-brand-700">Komitmen</h3>
+        <p class="text-sm text-gray-600 mt-2">Pendidikan berkualitas dan relevan dengan industri.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+      <h2 class="text-2xl font-bold text-gray-900 text-center mb-8">Nilai Kami</h2>
+      <div class="grid gap-6 sm:grid-cols-3">
+        {values.map((v) => (
+          <div class="bg-white rounded-2xl p-6 shadow-sm text-center">
+            <h3 class="font-semibold text-gray-900">{v.title}</h3>
+            <p class="text-sm text-gray-600 mt-2">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

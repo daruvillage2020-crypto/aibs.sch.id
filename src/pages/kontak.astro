@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import site from '../data/site.json';
+---
+
+<Layout
+  title="Kontak"
+  description="Hubungi AIBS via WhatsApp, email, atau kunjungi kampus kami."
+>
+  <section class="bg-brand-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16 text-center">
+      <h1 class="text-4xl font-extrabold text-gray-900">Hubungi Kami</h1>
+      <p class="mt-4 text-lg text-gray-600">Punya pertanyaan? Tim AIBS siap membantu.</p>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-16 grid gap-8 md:grid-cols-2">
+    <div class="space-y-5">
+      <div class="rounded-2xl border border-gray-100 p-6">
+        <h3 class="font-semibold text-gray-900">Alamat</h3>
+        <p class="text-gray-600 mt-1 text-sm">{site.address}</p>
+      </div>
+      <div class="rounded-2xl border border-gray-100 p-6">
+        <h3 class="font-semibold text-gray-900">Email</h3>
+        <a href={`mailto:${site.email}`} class="text-brand-600 text-sm">{site.email}</a>
+      </div>
+      <div class="rounded-2xl border border-gray-100 p-6">
+        <h3 class="font-semibold text-gray-900">WhatsApp</h3>
+        <a href={`https://wa.me/${site.whatsapp}`} class="text-brand-600 text-sm">{site.phone}</a>
+      </div>
+    </div>
+
+    <form name="kontak" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="rounded-2xl border border-gray-100 p-6 space-y-4">
+      <input type="hidden" name="form-name" value="kontak" />
+      <p class="hidden"><label>Jangan isi: <input name="bot-field" /></label></p>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
+        <input name="nama" required class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+        <input type="email" name="email" required class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
+        <textarea name="pesan" rows="4" required class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-brand-600 text-white py-3 rounded-lg font-medium hover:bg-brand-700">Kirim Pesan</button>
+    </form>
+  </section>
+</Layout>

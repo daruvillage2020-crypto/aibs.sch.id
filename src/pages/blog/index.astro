@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const fmt = (d) => new Date(d).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Layout title="Blog" description="Artikel, tips, dan kabar terbaru seputar AI dari AIBS.">
+  <section class="bg-brand-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16 text-center">
+      <h1 class="text-4xl font-extrabold text-gray-900">Blog AIBS</h1>
+      <p class="mt-4 text-lg text-gray-600">Wawasan terbaru seputar dunia kecerdasan buatan.</p>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-16">
+    {posts.length === 0 ? (
+      <p class="text-center text-gray-500">Belum ada artikel.</p>
+    ) : (
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => (
+          <a href={`/blog/${post.slug}`} class="group block rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition">
+            {post.data.cover && (
+              <img src={post.data.cover} alt={post.data.title} class="w-full h-44 object-cover" loading="lazy" />
+            )}
+            <div class="p-5">
+              <p class="text-xs text-brand-600 font-medium">{fmt(post.data.date)}</p>
+              <h2 class="mt-2 font-semibold text-gray-900 group-hover:text-brand-700">{post.data.title}</h2>
+              <p class="mt-2 text-sm text-gray-600 line-clamp-3">{post.data.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    )}
+  </section>
+</Layout>

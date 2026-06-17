@@ -1,0 +1,52 @@
+---
+import site from '../data/site.json';
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-brand-900 text-brand-100 mt-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid gap-8 md:grid-cols-4">
+    <div>
+      <div class="flex items-center gap-2 font-bold text-white text-lg mb-3">
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-brand-600">AI</span>
+        AIBS
+      </div>
+      <p class="text-sm text-brand-100/80">{site.tagline}</p>
+    </div>
+
+    <div>
+      <h3 class="text-white font-semibold mb-3">Navigasi</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a href="/" class="hover:text-white">Home</a></li>
+        <li><a href="/tentang" class="hover:text-white">Tentang</a></li>
+        <li><a href="/ppdb" class="hover:text-white">PPDB</a></li>
+        <li><a href="/blog" class="hover:text-white">Blog</a></li>
+        <li><a href="/jurusan" class="hover:text-white">Jurusan</a></li>
+        <li><a href="/kontak" class="hover:text-white">Kontak</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-white font-semibold mb-3">Jurusan</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a href="/jurusan#coding" class="hover:text-white">AI Coding</a></li>
+        <li><a href="/jurusan#design" class="hover:text-white">AI Design</a></li>
+        <li><a href="/jurusan#cybersecurity" class="hover:text-white">AI Cybersecurity</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-white font-semibold mb-3">Kontak</h3>
+      <ul class="space-y-2 text-sm text-brand-100/80">
+        <li>{site.address}</li>
+        <li><a href={`mailto:${site.email}`} class="hover:text-white">{site.email}</a></li>
+        <li><a href={`https://wa.me/${site.whatsapp}`} class="hover:text-white">{site.phone}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-brand-700/50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 text-xs text-brand-100/70 text-center">
+      © {year} AIBS — {site.tagline}. All rights reserved.
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import site from '../data/site.json';
+
+const jurusan = [
+  { title: 'AI Coding', desc: 'Bangun aplikasi cerdas, machine learning, dan otomasi.', icon: '💻', href: '/jurusan#coding' },
+  { title: 'AI Design', desc: 'Rancang visual & UX generatif dengan tools AI terkini.', icon: '🎨', href: '/jurusan#design' },
+  { title: 'AI Cybersecurity', desc: 'Amankan sistem dan data di era kecerdasan buatan.', icon: '🛡️', href: '/jurusan#cybersecurity' },
+];
+
+const features = [
+  { title: 'Kurikulum Berbasis AI', desc: 'Materi selalu update mengikuti perkembangan teknologi.' },
+  { title: 'Mentor Praktisi', desc: 'Belajar langsung dari profesional industri AI.' },
+  { title: 'Project Nyata', desc: 'Portofolio dari proyek dunia nyata, bukan sekadar teori.' },
+];
+---
+
+<Layout title="Home">
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-50 to-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28 text-center">
+      <span class="inline-block bg-brand-100 text-brand-700 text-xs font-semibold px-3 py-1 rounded-full mb-5">
+        {site.tagline}
+      </span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+        Belajar Membangun Masa Depan dengan
+        <span class="text-brand-600"> Kecerdasan Buatan</span>
+      </h1>
+      <p class="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
+        AIBS adalah sekolah AI satu-satunya di Indonesia. Pilih jurusan AI Coding, AI Design,
+        atau AI Cybersecurity dan jadilah talenta masa depan.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/ppdb" class="bg-brand-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-700">
+          Daftar PPDB Sekarang
+        </a>
+        <a href="/jurusan" class="bg-white text-brand-700 border border-brand-200 px-6 py-3 rounded-lg font-medium hover:bg-brand-50">
+          Lihat Jurusan
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Jurusan -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-gray-900">Jurusan Unggulan</h2>
+      <p class="text-gray-600 mt-2">Tiga bidang AI paling dibutuhkan industri.</p>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {jurusan.map((j) => (
+        <a href={j.href} class="group block rounded-2xl border border-gray-100 p-6 hover:shadow-lg hover:border-brand-200 transition">
+          <div class="text-4xl mb-4">{j.icon}</div>
+          <h3 class="text-xl font-semibold text-gray-900 group-hover:text-brand-700">{j.title}</h3>
+          <p class="text-gray-600 mt-2 text-sm">{j.desc}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+      <div class="grid gap-6 sm:grid-cols-3">
+        {features.map((f) => (
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <h3 class="font-semibold text-gray-900">{f.title}</h3>
+            <p class="text-gray-600 mt-2 text-sm">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <div class="bg-brand-600 rounded-3xl px-6 py-12 text-center text-white">
+      <h2 class="text-3xl font-bold">Siap Menjadi Talenta AI?</h2>
+      <p class="mt-3 text-brand-100">Pendaftaran PPDB telah dibuka. Konsultasi gratis via WhatsApp.</p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/ppdb" class="bg-white text-brand-700 px-6 py-3 rounded-lg font-medium hover:bg-brand-50">Daftar PPDB</a>
+        <a href={`https://wa.me/${site.whatsapp}`} class="bg-brand-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-900">Chat WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</Layout>
