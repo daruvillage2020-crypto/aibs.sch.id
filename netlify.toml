@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npm ci || npm install; npx astro build"
   publish = "dist"
 
 [build.environment]
